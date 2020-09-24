@@ -13,22 +13,26 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+
+//Here we start our function to return the finished password
 function generatePassword(){
   var lenghtOfPassword = prompt("How long do you want your password to be? (bettween 8 and 128 chars)");
 
+//Here we verify the user entered a number between 8 and 128
   if(lenghtOfPassword < 8 || lenghtOfPassword > 128) {
     alert("Password must be between 8 and 128 characters. Try again.");
     var noPassword = "No password for you!";
     return noPassword;
   } else {
 
+  //Here we asked the user to select the options that he wants for his password
   var lowercase = confirm("Do you want your password to include lower case characters?");
   var uppercase = confirm("Do you want your password to include uppercase characters?");
   var numeric = confirm("Do you want your password to include numeric characters?");
   var specialCharacters = confirm("Do you want your password to include special characters?");
   
   
-
+ //Here we check for what the user requested and we call the specific function
   if(lowercase && uppercase && numeric && specialCharacters) {
     var finalPassword = everything(lenghtOfPassword);
     console.log("The password is " + finalPassword);
@@ -101,7 +105,7 @@ function generatePassword(){
 
 
   
-  //lowercase
+ //These are the functions that return the finished password
   function everything(a){
     var result = "";
     for(var i = 0; i < a; i++){
